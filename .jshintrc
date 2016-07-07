@@ -1,0 +1,28 @@
+{
+  "browser": true,
+  "camelcase": false,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "trailing": true,
+  "smarttabs": true,
+  "ignoreDelimiters": [
+    { "start": "start-non-standard", "end": "end-non-standard" }
+  ],
+  "globals": {
+    "jQuery": true,
+    "rivets": true,
+    "console": true,
+    "$": true,
+    "_": true,
+    "describe": true,
+    "beforeEach": true,
+    "module": true,
+    "inject": true
+  }
+}

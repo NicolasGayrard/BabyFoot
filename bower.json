@@ -1,0 +1,8 @@
+{
+  "name": "sf2Skelleton",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "2.2.3",
+    "bootstrap": "^3.3.6"
+  }
+}
