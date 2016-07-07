@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 
     // Configurable paths for the application
     var appConfig = {
-        src: 'src/AppBundle'
+        src: 'src/Admin'
     };
 
     // Define the configuration for all the tasks
