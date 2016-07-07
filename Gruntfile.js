@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 
 
         // Project settings
-        sf2SkelletonApp: appConfig,
+        sf2GibBabyFootApp: appConfig,
         wiredep: {
             target: {
                 src: 'app/Resources/views/base.html.twig',
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
                     compress: true
                 },
                 files: {
-                    '<%= sf2SkelletonApp.src %>/Resources/public/css/style.css': '<%= sf2SkelletonApp.src %>/Resources/less/style.less',
+                    '<%= sf2GibBabyFootApp.src %>/Resources/public/css/style.css': '<%= sf2GibBabyFootApp.src %>/Resources/less/style.less',
                 }
             }
         },
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
             all: {
                 src: [
                     'Gruntfile.js',
-                    '<%= sf2SkelletonApp.src %>/Resources/public/js/{,*/}*.js'
+                    '<%= sf2GibBabyFootApp.src %>/Resources/public/js/{,*/}*.js'
                 ]
             }
         },
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
         watch: {
             less: {
                 files: [
-                    '<%= sf2SkelletonApp.src %>/Resources/less/{,*/}*.less'
+                    '<%= sf2GibBabyFootApp.src %>/Resources/less/{,*/}*.less'
                 ],
                 tasks: ['less'],
                 options: {
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: [
-                    '<%= sf2SkelletonApp.src %>/Resources/public/js/{,*/}*.js'
+                    '<%= sf2GibBabyFootApp.src %>/Resources/public/js/{,*/}*.js'
                 ],
                 tasks: ['jshint'],
                 options: {
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
             },
             views: {
                 files: [
-                    '<%= sf2SkelletonApp.src %>/Resources/views/{,*/}*.twig',
+                    '<%= sf2GibBabyFootApp.src %>/Resources/views/{,*/}*.twig',
                     'app/Resources/views/base.html.twig'
                 ],
                 tasks: ['jshint'],
