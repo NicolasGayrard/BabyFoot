@@ -2,6 +2,7 @@
 
 namespace Admin\BabyFootBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -56,6 +57,55 @@ class Player
      */
     private $avatarPath;
 
+    /**
+     * @var Statistic statistic
+     *
+     * @ORM\OneToOne(
+     *     targetEntity="Admin\BabyFootBundle\Entity\Statistic",
+     *     mappedBy="player"
+     * )
+     */
+    private $statistic;
+
+    /**
+     * @var string
+     *
+     * @ORM\OneToMany(
+     *     targetEntity="Admin\BabyFootBundle\Entity\Bet",
+     *     mappedBy="player",
+     *     cascade={"persist"}
+     * )
+     */
+    private $bets;
+
+    /**
+     * @var string
+     *
+     * @ORM\OneToMany(
+     *     targetEntity="Admin\BabyFootBundle\Entity\Team",
+     *     mappedBy="playerOne",
+     *     cascade={"persist"}
+     * )
+     */
+    private $playerOneTeams;
+
+    /**
+     * @var string
+     *
+     * @ORM\OneToMany(
+     *     targetEntity="Admin\BabyFootBundle\Entity\Team",
+     *     mappedBy="playerTwo",
+     *     cascade={"persist"}
+     * )
+     */
+    private $playerTwoTeams;
+
+    public function __construct()
+    {
+        $this->bets = new ArrayCollection();
+        $this->playerOneTeams = new ArrayCollection();
+        $this->playerTwoTeams = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -180,5 +230,120 @@ class Player
     public function getAvatarPath()
     {
         return $this->avatarPath;
+    }
+
+    /**
+     * @return Statistic
+     */
+    public function getStatistic()
+    {
+        return $this->statistic;
+    }
+
+    /**
+     * @param Statistic $statistic
+     */
+    public function setStatistic($statistic)
+    {
+        $this->statistic = $statistic;
+    }
+
+    /**
+     * Add bet
+     *
+     * @param \Admin\BabyFootBundle\Entity\Bet $bet
+     * @return Player
+     */
+    public function addBet(Bet $bet)
+    {
+        $this->bets[] = $bet;
+
+        return $this;
+    }
+
+    /**
+     * Remove bet
+     *
+     * @param \Admin\BabyFootBundle\Entity\Bet $bet
+     */
+    public function removeBet(Bet $bet)
+    {
+        $this->bets->removeElement($bet);
+    }
+
+    /**
+     * Get bets
+     *
+     * * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getBets()
+    {
+        return $this->bets;
+    }
+
+    /**
+     * Add playerOneTeam
+     *
+     * @param \Admin\BabyFootBundle\Entity\Team $playerOneTeam
+     * @return Player
+     */
+    public function addPlayerOneTeam(Team $playerOneTeam)
+    {
+        $this->playerOneTeams[] = $playerOneTeam;
+
+        return $this;
+    }
+
+    /**
+     * Remove playerOneTeam
+     *
+     * @param \Admin\BabyFootBundle\Entity\Team $playerOneTeam
+     */
+    public function removePlayerOneTeam(Team $playerOneTeam)
+    {
+        $this->$playerOneTeams->removeElement($playerOneTeam);
+    }
+
+    /**
+     * Get playerOneTeams
+     *
+     * * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getPlayerOneTeams()
+    {
+        return $this->playerOneTeams;
+    }
+
+    /**
+     * Add playerTwoTeam
+     *
+     * @param \Admin\BabyFootBundle\Entity\Team $playerTwoTeam
+     * @return Player
+     */
+    public function addPlayerTwoTeam(Team $playerTwoTeam)
+    {
+        $this->playerTwoTeams[] = $playerTwoTeam;
+
+        return $this;
+    }
+
+    /**
+     * Remove playerTwoTeam
+     *
+     * @param \Admin\BabyFootBundle\Entity\Team $playerTwoTeam
+     */
+    public function removePlayerTwoTeam(Team $playerTwoTeam)
+    {
+        $this->$playerTwoTeams->removeElement($playerTwoTeam);
+    }
+
+    /**
+     * Get playerTwoTeams
+     *
+     * * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getPlayerTwoTeams()
+    {
+        return $this->playerTwoTeams;
     }
 }

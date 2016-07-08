@@ -24,9 +24,25 @@ class FinalPhase
     /**
      * @var string
      *
-     * @ORM\Column(name="final_code", type="string", length=10)
+     * @ORM\Column(name="final_code", type="string", length=10, columnDefinition="ENUM('Q1', 'Q2', 'Q3', 'Q4', 'D1', 'D2', 'F')")
      */
     private $finalCode;
+
+    /**
+     * @var Matches match
+     *
+     * @ORM\ManyToOne(
+     *     targetEntity="Admin\BabyFootBundle\Entity\Matches",
+     *     inversedBy="finalPhases",
+     *     fetch="EAGER"
+     * )
+     * @ORM\JoinColumn(
+     *     name="match_id",
+     *     referencedColumnName="id"
+     * )
+     *
+     */
+    private $match;
 
 
     /**
@@ -60,5 +76,21 @@ class FinalPhase
     public function getFinalCode()
     {
         return $this->finalCode;
+    }
+
+    /**
+     * @return Matches
+     */
+    public function getMatch()
+    {
+        return $this->match;
+    }
+
+    /**
+     * @param Matches $match
+     */
+    public function setMatch($match)
+    {
+        $this->match = $match;
     }
 }

@@ -63,6 +63,20 @@ class Statistic
      */
     private $nbTournamentVictory;
 
+    /**
+     * @var string
+     *
+     * @ORM\OneToOne(
+     *     targetEntity="Admin\BabyFootBundle\Entity\Player",
+     *     inversedBy="statistic"
+     * )
+     * @ORM\JoinColumn(
+     *     name="player_id",
+     *     referencedColumnName="id"
+     * )
+     */
+    private $player;
+
 
     /**
      * Get id
@@ -210,5 +224,21 @@ class Statistic
     public function getNbTournamentVictory()
     {
         return $this->nbTournamentVictory;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlayer()
+    {
+        return $this->player;
+    }
+
+    /**
+     * @param string $player
+     */
+    public function setPlayer($player)
+    {
+        $this->player = $player;
     }
 }

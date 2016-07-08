@@ -28,6 +28,20 @@ class Registration
      */
     private $listPlayer;
 
+    /**
+     * @var string
+     *
+     * @ORM\OneToOne(
+     *     targetEntity="Admin\BabyFootBundle\Entity\Tournament",
+     *     inversedBy="registration"
+     * )
+     * @ORM\JoinColumn(
+     *     name="tournament_id",
+     *     referencedColumnName="id"
+     * )
+     */
+    private $tournament;
+
 
     /**
      * Get id
@@ -60,5 +74,21 @@ class Registration
     public function getListPlayer()
     {
         return $this->listPlayer;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTournament()
+    {
+        return $this->tournament;
+    }
+
+    /**
+     * @param string $tournament
+     */
+    public function setTournament($tournament)
+    {
+        $this->tournament = $tournament;
     }
 }

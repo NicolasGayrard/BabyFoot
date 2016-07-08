@@ -35,6 +35,21 @@ class Result
      */
     private $scoreTeamAway;
 
+    /**
+     * @var Matches match
+     *
+     * @ORM\ManyToOne(
+     *     targetEntity="Admin\BabyFootBundle\Entity\Matches",
+     *     inversedBy="results",
+     *     fetch="EAGER"
+     * )
+     * @ORM\JoinColumn(
+     *     name="match_id",
+     *     referencedColumnName="id"
+     * )
+     *
+     */
+    private $match;
 
     /**
      * Get id
@@ -90,5 +105,21 @@ class Result
     public function getScoreTeamAway()
     {
         return $this->scoreTeamAway;
+    }
+
+    /**
+     * @return Matches
+     */
+    public function getMatch()
+    {
+        return $this->match;
+    }
+
+    /**
+     * @param Matches $match
+     */
+    public function setMatch($match)
+    {
+        $this->match = $match;
     }
 }

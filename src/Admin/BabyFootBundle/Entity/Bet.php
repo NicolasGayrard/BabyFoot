@@ -35,6 +35,54 @@ class Bet
      */
     private $amount;
 
+    /**
+     * @var Player player
+     *
+     * @ORM\ManyToOne(
+     *     targetEntity="Admin\BabyFootBundle\Entity\Player",
+     *     inversedBy="bets",
+     *     fetch="EAGER"
+     * )
+     * @ORM\JoinColumn(
+     *     name="player_id",
+     *     referencedColumnName="id"
+     * )
+     *
+     */
+    private $player;
+
+    /**
+     * @var Team teamBet
+     *
+     * @ORM\ManyToOne(
+     *     targetEntity="Admin\BabyFootBundle\Entity\Team",
+     *     inversedBy="bets",
+     *     fetch="EAGER"
+     * )
+     * @ORM\JoinColumn(
+     *     name="team_bet_id",
+     *     referencedColumnName="id"
+     * )
+     *
+     */
+    private $teamBet;
+
+    /**
+     * @var Matches match
+     *
+     * @ORM\ManyToOne(
+     *     targetEntity="Admin\BabyFootBundle\Entity\Matches",
+     *     inversedBy="bets",
+     *     fetch="EAGER"
+     * )
+     * @ORM\JoinColumn(
+     *     name="match_id",
+     *     referencedColumnName="id"
+     * )
+     *
+     */
+    private $match;
+
 
     /**
      * Get id
@@ -90,5 +138,53 @@ class Bet
     public function getAmount()
     {
         return $this->amount;
+    }
+
+    /**
+     * @return Player
+     */
+    public function getPlayer()
+    {
+        return $this->player;
+    }
+
+    /**
+     * @param Player $player
+     */
+    public function setPlayer($player)
+    {
+        $this->player = $player;
+    }
+
+    /**
+     * @return Team
+     */
+    public function getTeamBet()
+    {
+        return $this->teamBet;
+    }
+
+    /**
+     * @param Team $teamBet
+     */
+    public function setTeamBet($teamBet)
+    {
+        $this->teamBet = $teamBet;
+    }
+
+    /**
+     * @return Matches
+     */
+    public function getMatch()
+    {
+        return $this->match;
+    }
+
+    /**
+     * @param Matches $match
+     */
+    public function setMatch($match)
+    {
+        $this->match = $match;
     }
 }
