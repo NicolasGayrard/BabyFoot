@@ -1,16 +1,16 @@
 {
-  "name": "sf2Skelleton",
+  "name": "sf2GibBabyFoot",
   "version": "1.0.0",
-  "description": "maquette de base",
+  "description": "App for Baby Foot Playing",
   "main": "Gruntfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@gitlab.gibmedia.fr:edition/sf2GibBabyFoot.git"
   },
-  "author": "Adrien Piguet",
+  "author": "Nicolas Gayrard",
   "license": "MIT",
   "dependencies": {
     "grunt": "0.4.5",

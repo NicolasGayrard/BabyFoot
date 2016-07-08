@@ -1,0 +1,3 @@
+admin_baby_foot_homepage:
+    path:     /
+    defaults: { _controller: AdminBabyFootBundle:Default:index }

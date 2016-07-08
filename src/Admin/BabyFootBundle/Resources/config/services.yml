@@ -1,0 +1,4 @@
+services:
+#    admin_baby_foot.example:
+#        class: Admin\BabyFootBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
