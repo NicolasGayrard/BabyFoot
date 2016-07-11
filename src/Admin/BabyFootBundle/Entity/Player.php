@@ -4,6 +4,7 @@ namespace Admin\BabyFootBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Entity\User as BaseUser;
 
 /**
  * Player
@@ -11,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="player")
  * @ORM\Entity(repositoryClass="Admin\BabyFootBundle\Repository\PlayerRepository")
  */
-class Player
+class Player extends BaseUser
 {
     /**
      * @var int
@@ -20,42 +21,29 @@ class Player
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="first_name", type="string", length=255)
+     * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
      */
-    private $firstName;
+    protected $firstName;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="mail", type="string", length=255)
-     */
-    private $mail;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=255)
-     */
-    private $password;
 
     /**
      * @var string
      *
      * @ORM\Column(name="avatar_path", type="string", length=255, nullable=true)
      */
-    private $avatarPath;
+    protected $avatarPath;
 
     /**
      * @var Statistic statistic
@@ -102,6 +90,7 @@ class Player
 
     public function __construct()
     {
+        parent::__construct();
         $this->bets = new ArrayCollection();
         $this->playerOneTeams = new ArrayCollection();
         $this->playerTwoTeams = new ArrayCollection();
