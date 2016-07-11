@@ -82,7 +82,8 @@ module.exports = function(grunt) {
             views: {
                 files: [
                     '<%= sf2GibBabyFootApp.src %>/Resources/views/{,*/}*.twig',
-                    'app/Resources/views/base.html.twig'
+                    'app/Resources/views/base.html.twig',
+                    'app/Resources/FOSUserBundle/views/{,*/}*.twig'
                 ],
                 tasks: ['jshint'],
                 options: {
