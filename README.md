@@ -1,15 +1,8 @@
-sf2Skelleton
+Projet Baby Foot Gib
 ============
 
 ## Installation
 
-Supprimer le dépot git existant et créer un nouveau dépot
-
-```shell
-cd /var/www/nomduprojet
-rm -rf .git
-git init
-```
 
 ```shell
 composer install
@@ -33,9 +26,6 @@ grunt build
 ```
 
 Builde le projet: concatenation, uglify et minification des sources js et css
-
-## Ajout du favicon
-remplacer les images dans le dossier favicon
 
 ### Installer une nouvelle lib JS ou CSS
 Essayer tant que possible de le faire en utilisant bower via la commande:
